@@ -1,0 +1,218 @@
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+
+.back-btn:hover {
+  color: var(--color-text);
+}
+
+.game-room-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.game-room-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem;
+  color: var(--color-text-muted);
+}
+
+.game-room-error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 4rem;
+  color: #f87171;
+  text-align: center;
+}
+
+.game-room-error-screen button {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.game-room-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.game-room-info {
+  flex: 1;
+}
+
+.game-room-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.2rem 0;
+}
+
+.game-room-type {
+  font-size: 0.8rem;
+  color: var(--color-accent-light);
+  background: rgba(79, 70, 229, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+}
+
+.game-room-reward {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.game-room-reward span {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.game-room-reward strong {
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.game-room-game {
+  display: flex;
+  justify-content: center;
+}
+
+/* FINISH SCREEN */
+.game-finish-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.trophy-icon {
+  color: var(--color-gold);
+  filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.finish-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.finish-subtitle {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.finish-reward {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+  animation: fadeInUp 0.5s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.finish-btn {
+  background: linear-gradient(135deg, var(--color-accent), #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+  animation: fadeInUp 0.5s ease 0.5s both;
+}
+
+.finish-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45);
+}
+
+/* CONFETTI */
+.confetti-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -12px;
+  left: var(--x);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confettiFall 3s ease-in var(--delay, 0s) infinite;
+}
+
+.confetti-piece--1 { background: #f59e0b; }
+.confetti-piece--2 { background: #4f46e5; }
+.confetti-piece--3 { background: #10b981; }
+.confetti-piece--4 { background: #ef4444; }
+.confetti-piece--5 { background: #818cf8; }
+.confetti-piece--6 { background: #f472b6; }
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
