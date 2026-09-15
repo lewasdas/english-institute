@@ -53,7 +53,13 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) throw error
-    return data
+    const { data: profile } = await axios.get('/api/auth/profile', {
+      headers: { Authorization: `Bearer ${data.session.access_token}` }
+    })
+    setUser({ ...data.user, full_name: profile.full_name })
+    setRole(profile.role)
+    setBalance(profile.balance ?? 0)
+    return profile.role
   }
 
   const logout = async () => {

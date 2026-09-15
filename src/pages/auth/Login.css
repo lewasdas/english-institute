@@ -15,7 +15,7 @@
   border-radius: var(--border-radius);
   padding: 2.5rem;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow);
 }
@@ -38,6 +38,100 @@
   font-size: 0.9rem;
 }
 
+/* Role selector */
+.role-prompt {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.role-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.role-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  color: var(--color-text);
+  width: 100%;
+}
+
+.role-card:hover {
+  border-color: var(--role-color);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateX(4px);
+}
+
+.role-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--role-color) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--role-color) 40%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--role-color);
+  flex-shrink: 0;
+}
+
+.role-label {
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+  line-height: 1.2;
+}
+
+.role-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* Selected role badge */
+.role-selected-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background: color-mix(in srgb, var(--role-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--role-color) 35%, transparent);
+  border-radius: 99px;
+  color: var(--role-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.role-change {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.role-change:hover {
+  color: var(--color-text);
+}
+
+/* Form */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -79,7 +173,7 @@
   border-radius: var(--border-radius-sm);
   color: var(--color-text);
   font-size: 0.9375rem;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color 0.2s, background 0.2s;
   outline: none;
 }
 
