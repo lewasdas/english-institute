@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
-import { LogIn, Mail, Lock, GraduationCap, BookOpen, ShieldCheck } from 'lucide-react'
+import { LogIn, Mail, Lock, GraduationCap, BookOpen } from 'lucide-react'
 import useAuth from '../../hooks/useAuth.js'
 import './Login.css'
 
@@ -10,22 +10,13 @@ const ROLES = [
     key: 'student',
     label: 'Alumno',
     icon: GraduationCap,
-    description: 'Jugá, aprendé y ganá HappyFaces',
     color: '#10B981',
   },
   {
     key: 'teacher',
     label: 'Profesor',
     icon: BookOpen,
-    description: 'Creá salas y gestioná tu curso',
     color: '#4F46E5',
-  },
-  {
-    key: 'admin',
-    label: 'Admin',
-    icon: ShieldCheck,
-    description: 'Panel de administración',
-    color: '#F59E0B',
   },
 ]
 
@@ -87,7 +78,6 @@ export default function Login() {
                     <Icon size={28} />
                   </div>
                   <span className="role-label">{label}</span>
-                  <span className="role-desc">{description}</span>
                 </button>
               ))}
             </div>
