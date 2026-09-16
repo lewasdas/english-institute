@@ -16,23 +16,23 @@ export function AuthProvider({ children }) {
       setRole(null)
       setBalance(0)
       setLoading(false)
-      return
+      return null
     }
 
     try {
       const { data } = await axios.get('/api/auth/profile', {
-        headers: {
-          Authorization: `Bearer ${session.access_token}`,
-        },
+        headers: { Authorization: `Bearer ${session.access_token}` },
       })
       setUser({ ...session.user, full_name: data.full_name, avatar_url: data.avatar_url })
       setRole(data.role)
       setBalance(data.balance ?? 0)
+      return data.role
     } catch (err) {
       console.error('Error fetching profile:', err)
       setUser(session.user)
       setRole(null)
       setBalance(0)
+      return null
     } finally {
       setLoading(false)
     }
@@ -53,13 +53,9 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) throw error
-    const { data: profile } = await axios.get('/api/auth/profile', {
-      headers: { Authorization: `Bearer ${data.session.access_token}` }
-    })
-    setUser({ ...data.user, full_name: profile.full_name })
-    setRole(profile.role)
-    setBalance(profile.balance ?? 0)
-    return profile.role
+    // fetchProfile se llama por onAuthStateChange, esperamos que termine
+    const profileData = await fetchProfile(data.session)
+    return profileData
   }
 
   const logout = async () => {
