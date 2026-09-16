@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { LogIn, Mail, Lock, GraduationCap, BookOpen } from 'lucide-react'
@@ -35,6 +35,14 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
+  // Cuando el rol se setea en el contexto, navegamos
+  useEffect(() => {
+    if (role) {
+      const dest = ROLE_DASHBOARDS[role] || '/'
+      navigate(dest, { replace: true })
+    }
+  }, [role, navigate])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!email || !password) {
@@ -44,13 +52,10 @@ export default function Login() {
 
     setLoading(true)
     try {
-      const userRole = await login(email, password)
+      await login(email, password)
       toast.success('¡Bienvenido!')
-      const dest = ROLE_DASHBOARDS[userRole] || '/'
-      navigate(dest, { replace: true })
     } catch (err) {
       toast.error(err.message || 'Email o contraseña incorrectos')
-    } finally {
       setLoading(false)
     }
   }

@@ -51,11 +51,9 @@ export function AuthProvider({ children }) {
   }, [fetchProfile])
 
   const login = async (email, password) => {
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) throw error
-    // fetchProfile se llama por onAuthStateChange, esperamos que termine
-    const profileData = await fetchProfile(data.session)
-    return profileData
+    // onAuthStateChange se encarga de llamar fetchProfile y setear role
   }
 
   const logout = async () => {
