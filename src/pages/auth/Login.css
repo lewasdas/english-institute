@@ -25,6 +25,17 @@
   margin-bottom: 2rem;
 }
 
+.login-logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin-bottom: 0.75rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .login-brand {
   font-size: 2rem;
   font-weight: 700;

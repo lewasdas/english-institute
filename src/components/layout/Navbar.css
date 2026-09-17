@@ -11,6 +11,19 @@
   z-index: 100;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
 .navbar-logo {
   font-size: 1.25rem;
   font-weight: 700;
