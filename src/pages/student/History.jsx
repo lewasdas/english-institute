@@ -20,7 +20,7 @@ export default function History() {
 
   useEffect(() => {
     if (!user?.id) return
-    api('get', `/api/wallet/${user.id}`)
+    api('get', `/api/wallet?studentId=${user.id}`)
       .then(({ data }) => setData(data))
       .catch(() => setError('No se pudo cargar el historial.'))
       .finally(() => setLoading(false))

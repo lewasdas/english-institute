@@ -22,7 +22,7 @@ export default function TeacherDashboard() {
   const [togglingId, setTogglingId] = useState(null)
 
   useEffect(() => {
-    api('get', '/api/rooms/my-rooms')
+    api('get', '/api/rooms?action=my-rooms')
       .then(({ data }) => setRooms(data))
       .catch(() => setError('No se pudieron cargar las salas.'))
       .finally(() => setLoading(false))

@@ -16,7 +16,7 @@ export default function Store() {
   const [toast, setToast] = useState(null)
 
   useEffect(() => {
-    api('get', '/api/store/items')
+    api('get', '/api/store')
       .then(({ data }) => setItems(data))
       .catch(() => setError('No se pudo cargar la tienda.'))
       .finally(() => setLoading(false))
@@ -25,7 +25,7 @@ export default function Store() {
   const handlePurchase = async (item) => {
     setPurchasing(item.id)
     try {
-      await api('post', '/api/store/purchase', { itemId: item.id })
+      await api('post', '/api/store', { itemId: item.id })
       showToast('success', `¡Canjeaste "${item.name}"! 🎉`)
     } catch (err) {
       const msg = err.response?.data?.error || 'Error al canjear el item.'

@@ -25,7 +25,7 @@ export default function AdminUsers() {
   const [createError, setCreateError] = useState('')
 
   useEffect(() => {
-    api('get', '/api/admin/users')
+    api('get', '/api/admin?resource=users')
       .then(({ data }) => setUsers(data))
       .catch(() => setError('No se pudieron cargar los usuarios.'))
       .finally(() => setLoading(false))
@@ -36,10 +36,11 @@ export default function AdminUsers() {
     setAssigning(true)
     setAssignError('')
     try {
-      await api('post', '/api/wallet/assign', {
-        userId: assignModal.user.id,
+      await api('post', '/api/wallet', {
+        action: 'assign',
+        studentId: assignModal.user.id,
         amount: Number(assignAmount),
-        description: assignNote.trim() || 'Asignación manual',
+        reason: assignNote.trim() || 'Asignación manual',
       })
       setUsers(prev => prev.map(u =>
         u.id === assignModal.user.id ? { ...u, balance: (u.balance ?? 0) + Number(assignAmount) } : u
@@ -62,7 +63,7 @@ export default function AdminUsers() {
     setCreating(true)
     setCreateError('')
     try {
-      const { data } = await api('post', '/api/admin/users', newUser)
+      const { data } = await api('post', '/api/admin?resource=users', newUser)
       setUsers(prev => [...prev, data])
       setCreateModal(false)
       setNewUser({ full_name: '', email: '', password: '', role: 'student' })

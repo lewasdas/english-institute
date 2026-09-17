@@ -12,7 +12,7 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     if (user?.id) {
-      api('get', `/api/wallet/${user.id}`).catch(() => {})
+      api('get', `/api/wallet?studentId=${user.id}`).catch(() => {})
     }
   }, [user?.id])
 

@@ -255,7 +255,7 @@ export default function CreateRoom() {
     setError('')
     setLoading(true)
     try {
-      await api('post', '/api/rooms/create', {
+      await api('post', '/api/rooms?action=create', {
         name: form.name.trim(),
         game_type: form.gameType,
         password: form.password.trim(),

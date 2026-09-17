@@ -17,7 +17,7 @@ export default function JoinRoom() {
     setError('')
     setLoading(true)
     try {
-      const { data } = await api('post', '/api/rooms/join', { password: password.trim() })
+      const { data } = await api('post', '/api/rooms?action=join', { password: password.trim() })
       navigate(`/student/room/${data.roomId}`)
     } catch (err) {
       const msg = err.response?.data?.error || 'Contraseña incorrecta o sala no encontrada.'

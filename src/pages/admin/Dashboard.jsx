@@ -16,12 +16,11 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     Promise.all([
-      api('get', '/api/admin/stats'),
-      api('get', '/api/admin/transactions'),
+      api('get', '/api/admin?resource=stats'),
     ])
-      .then(([statsRes, txRes]) => {
+      .then(([statsRes]) => {
         setStats(statsRes.data)
-        setTransactions(txRes.data)
+        setTransactions(statsRes.data?.recentTransactions ?? [])
       })
       .catch(() => {})
       .finally(() => setLoading(false))
