@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <img src="/logo.jpg" alt="Logo" className="navbar-logo-img" />
+        <img src="/logo.png" alt="Logo" className="navbar-logo-img" />
         <span className="navbar-logo">HappyFaces</span>
       </div>
 

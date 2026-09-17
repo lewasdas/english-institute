@@ -50,7 +50,7 @@ export default function TeacherSidebar() {
     <div className="sidebar-inner">
       <div className="sidebar-header">
         <div className="sidebar-logo">
-          <img src="/logo.jpg" alt="Logo" className="sidebar-logo-img" />
+          <img src="/logo.png" alt="Logo" className="sidebar-logo-img" />
           <span className="sidebar-logo-text">HappyFaces</span>
         </div>
         <p className="sidebar-subtitle">Panel Docente</p>

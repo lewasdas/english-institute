@@ -64,7 +64,7 @@ export default function Login() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-header">
-          <img src="/logo.jpg" alt="Logo" className="login-logo-img" />
+          <img src="/logo.png" alt="Logo" className="login-logo-img" />
           <h1 className="login-brand">HappyFaces</h1>
           <p className="login-subtitle">Instituto de Inglés</p>
         </div>
