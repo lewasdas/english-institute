@@ -156,3 +156,40 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ==============================
+   RESPONSIVE - JOIN ROOM
+   ============================== */
+
+@media (max-width: 640px) {
+  .join-room-content {
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+
+  .join-room-card {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .join-room-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+  }
+
+  .join-room-title {
+    font-size: 1.4rem;
+  }
+
+  .join-room-input {
+    font-size: 16px;
+    padding: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .join-room-submit {
+    min-height: 52px;
+    font-size: 1rem;
+  }
+}

@@ -162,3 +162,47 @@
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==============================
+   RESPONSIVE - FILL BLANKS
+   ============================== */
+
+@media (max-width: 640px) {
+  .fb-container {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .fb-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+    gap: 1rem;
+  }
+
+  .fb-sentence {
+    font-size: 1.05rem;
+    line-height: 2.2;
+    gap: 0.25rem;
+  }
+
+  .fb-blank input {
+    font-size: 16px;
+    min-width: 70px;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .fb-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .fb-btn {
+    min-height: 48px;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .fb-score-big {
+    font-size: 2.5rem;
+  }
+}

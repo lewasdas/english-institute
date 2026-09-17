@@ -166,3 +166,64 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ==============================
+   RESPONSIVE - ADMIN DASHBOARD
+   ============================== */
+
+/* Desktop: auto-fill handles 3-4 columns */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 2 columns compact, or 1 column for very small */
+@media (max-width: 640px) {
+  .dashboard-title {
+    font-size: 1.4rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .admin-tx-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .admin-tx-date {
+    width: 100%;
+    order: 3;
+    font-size: 0.72rem;
+  }
+
+  .admin-tx-amount {
+    font-size: 0.9rem;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

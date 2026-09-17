@@ -258,3 +258,72 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ==============================
+   RESPONSIVE - ROOM DETAIL
+   ============================== */
+
+@media (max-width: 640px) {
+  .room-detail-content {
+    max-width: 100%;
+    gap: 1.25rem;
+  }
+
+  .rd-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .rd-title {
+    font-size: 1.4rem;
+  }
+
+  .rd-reward {
+    align-items: flex-start;
+  }
+
+  .rd-password-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .rd-password-value {
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+  }
+
+  .rd-copy-btn {
+    min-height: 44px;
+  }
+
+  .rd-participants-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .rd-participants-stats {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* Each participant row stays as card — tweak for mobile */
+  .rd-participant-row {
+    padding: 0.875rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .rd-participant-name {
+    font-size: 0.88rem;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .back-btn {
+    min-height: 44px;
+    align-items: center;
+  }
+}

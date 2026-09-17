@@ -94,30 +94,69 @@ export default function AdminUsers() {
         ) : error ? (
           <div className="users-error">{error}</div>
         ) : (
-          <div className="users-table-wrap">
-            <table className="users-table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Rol</th>
-                  <th>Saldo HF</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map(user => (
-                  <tr key={user.id}>
-                    <td className="user-name">{user.full_name || '—'}</td>
-                    <td className="user-email">{user.email}</td>
-                    <td>
+          <>
+            {/* Desktop/Tablet: Table */}
+            <div className="users-table-wrap">
+              <table className="users-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Saldo HF</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map(user => (
+                    <tr key={user.id}>
+                      <td className="user-name">{user.full_name || '—'}</td>
+                      <td className="user-email">{user.email}</td>
+                      <td>
+                        <span className={`user-role-badge user-role-badge--${user.role}`}>
+                          {ROLE_LABELS[user.role] || user.role}
+                        </span>
+                      </td>
+                      <td className="user-balance">{user.balance ?? 0} HF</td>
+                      <td>
+                        {user.role === 'student' && (
+                          <button
+                            className="give-hf-btn"
+                            onClick={() => { setAssignModal({ user }); setAssignAmount(''); setAssignNote(''); setAssignError('') }}
+                          >
+                            <Gift size={14} />
+                            Dar HF
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile: Cards */}
+            <div className="users-card-list">
+              {users.map(user => {
+                const initials = (user.full_name || user.email || '?')
+                  .split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
+                return (
+                  <div key={user.id} className="user-card-mobile">
+                    <div className="user-card-mobile-top">
+                      <div className="user-card-avatar">{initials}</div>
+                      <div className="user-card-info">
+                        <div className="user-card-name">{user.full_name || '—'}</div>
+                        <div className="user-card-email">{user.email}</div>
+                      </div>
+                    </div>
+                    <div className="user-card-meta">
                       <span className={`user-role-badge user-role-badge--${user.role}`}>
                         {ROLE_LABELS[user.role] || user.role}
                       </span>
-                    </td>
-                    <td className="user-balance">{user.balance ?? 0} HF</td>
-                    <td>
-                      {user.role === 'student' && (
+                      <span className="user-card-balance">{user.balance ?? 0} HF</span>
+                    </div>
+                    {user.role === 'student' && (
+                      <div className="user-card-actions">
                         <button
                           className="give-hf-btn"
                           onClick={() => { setAssignModal({ user }); setAssignAmount(''); setAssignNote(''); setAssignError('') }}
@@ -125,13 +164,13 @@ export default function AdminUsers() {
                           <Gift size={14} />
                           Dar HF
                         </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </>
         )}
 
         {/* Assign HF Modal */}

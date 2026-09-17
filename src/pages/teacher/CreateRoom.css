@@ -310,3 +310,60 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ==============================
+   RESPONSIVE - CREATE ROOM
+   ============================== */
+
+@media (max-width: 640px) {
+  .create-room-content {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .create-room-title {
+    font-size: 1.4rem;
+  }
+
+  /* Already has a media query at 600px for .form-row, reinforce for mobile */
+  .form-input,
+  .config-input,
+  .config-textarea {
+    font-size: 16px;
+  }
+
+  .form-input {
+    padding: 0.875rem 1rem;
+  }
+
+  .config-editor-wrapper {
+    padding: 1rem;
+  }
+
+  .mc-question-editor {
+    padding: 0.875rem;
+  }
+
+  .mc-option-row {
+    flex-wrap: nowrap;
+  }
+
+  .vocab-pair-row {
+    flex-wrap: wrap;
+  }
+
+  .create-room-submit {
+    min-height: 52px;
+    font-size: 1rem;
+  }
+
+  .config-add-btn,
+  .config-remove-btn {
+    min-height: 40px;
+  }
+
+  .back-btn {
+    min-height: 44px;
+    align-items: center;
+  }
+}

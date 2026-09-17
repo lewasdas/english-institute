@@ -149,3 +149,39 @@
   font-weight: 800;
   color: var(--color-gold);
 }
+
+/* ==============================
+   RESPONSIVE - MULTIPLE CHOICE
+   ============================== */
+
+@media (max-width: 640px) {
+  .mc-container {
+    max-width: 100%;
+    gap: 1.1rem;
+  }
+
+  .mc-question-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .mc-question-text {
+    font-size: 1.05rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .mc-option {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+    min-height: 52px;
+    border-radius: 10px;
+  }
+
+  .mc-option:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .mc-score-big {
+    font-size: 2.5rem;
+  }
+}
