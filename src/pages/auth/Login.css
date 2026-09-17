@@ -77,8 +77,8 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: color-mix(in srgb, var(--role-color) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--role-color) 40%, transparent);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,8 +106,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.875rem;
-  background: color-mix(in srgb, var(--role-color) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--role-color) 35%, transparent);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 99px;
   color: var(--role-color);
   font-size: 0.875rem;
