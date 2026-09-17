@@ -27,7 +27,7 @@ const ROLE_DASHBOARDS = {
 }
 
 export default function Login() {
-  const { login } = useAuth()
+  const { login, role } = useAuth()
   const navigate = useNavigate()
 
   const [selectedRole, setSelectedRole] = useState(null)
